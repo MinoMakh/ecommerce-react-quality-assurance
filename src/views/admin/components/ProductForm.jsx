@@ -12,12 +12,11 @@ import PropType from 'prop-types';
 import React from 'react';
 import * as Yup from 'yup';
 
-// Default brand names that I used. You can use what you want
 const brandOptions = [
-  { value: 'Salt Maalat', label: 'Salt Maalat' },
-  { value: 'Betsin Maalat', label: 'Betsin Maalat' },
-  { value: 'Sexbomb', label: 'Sexbomb' },
-  { value: 'Black Kibal', label: 'Black Kibal' }
+  { value: 'Nike', label: 'Nike' },
+  { value: 'Adidas', label: 'Adidas' },
+  { value: 'Puma', label: 'Puma' },
+  { value: 'Reebok', label: 'Reebok' }
 ];
 
 const FormSchema = Yup.object().shape({

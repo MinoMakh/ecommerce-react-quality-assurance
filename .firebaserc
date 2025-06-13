@@ -1,5 +1,7 @@
 {
   "projects": {
-    "default": "salinaka-ecommerce"
-  }
+    "default": "ecommerce-quality-assurance"
+  },
+  "targets": {},
+  "etags": {}
 }

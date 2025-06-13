@@ -1,9 +1,8 @@
 {
-  "setupFiles": [
-      "raf/polyfill",
-      "<rootDir>/test/setup.js"
-  ],
-  "snapshotSerializers": [
-      "enzyme-to-json/serializer"
-  ]
+  "setupFilesAfterEnv": ["<rootDir>/test/setup.js"],
+  "testEnvironment": "jsdom",
+  "moduleNameMapper": {
+    "^@/(.*)$": "<rootDir>/src/$1",
+    "\\.(jpg|jpeg|png|gif|svg)$": "<rootDir>/test/__mocks__/fileMock.js"
+  }
 }

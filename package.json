@@ -12,7 +12,9 @@
   "license": "MIT",
   "scripts": {
     "dev": "vite",
-    "build": "vite build  && cd dist && cp index.html 404.html",
+
+    "build": "vite build && cpy index.html 404.html --cwd dist",
+
     "serve": "vite preview",
     "test": "vitest",
     "test:ui": "vitest --ui",
@@ -26,6 +28,7 @@
     "@vitest/ui": "^3.2.3",
     "babel-plugin-module-resolver": "^5.0.2",
     "copy-webpack-plugin": "^8.1.1",
+    "cpy-cli": "^5.0.0",
     "css-loader": "^5.2.4",
     "dotenv": "^8.2.0",
     "enzyme": "^3.11.0",

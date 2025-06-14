@@ -17,10 +17,11 @@ import ShippingForm from './ShippingForm';
 import ShippingTotal from './ShippingTotal';
 
 const FormSchema = Yup.object().shape({
-  fullname: Yup.string()
-    .required('Full name is required.')
-    .min(2, 'Full name must be at least 2 characters long.')
-    .max(60, 'Full name must only be less than 60 characters.'),
+ fullname: Yup.string()
+  .required('Full name is required.')
+  .min(2, 'Full name must be at least 2 characters long.')
+  .max(60, 'Full name must only be less than 60 characters.')
+  .matches(/^[a-zA-Z\s]+$/, 'Full name must not contain digits.'),
   email: Yup.string()
     .email('Email is not valid.')
     .required('Email is required.'),

@@ -171,7 +171,7 @@ const ProductForm = ({ product, onSubmit, isLoading }) => {
                 &nbsp;
                 <div className="product-form-field">
                   <CustomCreatableSelect
-                    defaultValue={values.keywords.map((key) => ({ value: key, label: key }))}
+                    defaultValue={values.sizes.map((key) => ({ value: key, label: key }))}
                     name="sizes"
                     iid="sizes"
                     type="number"

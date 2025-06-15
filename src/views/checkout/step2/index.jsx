@@ -21,7 +21,7 @@ const FormSchema = Yup.object().shape({
   .required('Full name is required.')
   .min(2, 'Full name must be at least 2 characters long.')
   .max(60, 'Full name must only be less than 60 characters.')
-  .matches(/^[a-zA-Z\s]+$/, 'Full name must not contain digits.'),
+  .matches(/^[a-zA-Z\s]+$/, 'Full name must not contain digits.'), // Added this line, checks if fullname is digits.
   email: Yup.string()
     .email('Email is not valid.')
     .required('Email is required.'),

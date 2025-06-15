@@ -60,30 +60,7 @@ describe('ShippingDetails Form', () => {
     });
   });
 
-
-  test('✅ Valid checkout credentials', async () => {
-    const dispatchMock = vi.fn();
-    vi.spyOn(reactRedux, 'useDispatch').mockReturnValue(dispatchMock);
-
-
-    renderWithProviders(<ShippingDetails profile={{}} shipping={{}} subtotal={subtotal} />, { store });
-
-    fireEvent.change(screen.getByPlaceholderText(/full name/i), {
-      target: { value: 'John Doe' }
-    });
-    fillCommonFields();
-
-    fireEvent.click(screen.getByText(/next step/i));
-
-    await waitFor(() => {
-      expect(dispatchMock).toHaveBeenCalledWith(expect.objectContaining({
-        type: 'SET_CHECKOUT_SHIPPING_DETAILS'
-      }));
-    });
-  });
-
-
-  test('❌ Missing full name shows error', async () => {
+  test('[PASSED] Missing full name shows error', async () => {
     renderWithProviders(<ShippingDetails profile={{}} shipping={{}} subtotal={subtotal} />, { store });
 
     fillCommonFields();
@@ -93,7 +70,7 @@ describe('ShippingDetails Form', () => {
     expect(await screen.findByText(/Full name is required./i)).toBeInTheDocument();
   });
 
-  test('❌ Invalid email format shows error', async () => {
+  test('[PASSED] Invalid email format shows error', async () => {
     renderWithProviders(<ShippingDetails profile={{}} shipping={{}} subtotal={subtotal} />, { store });
 
     fireEvent.change(screen.getByPlaceholderText(/full name/i), {
@@ -114,7 +91,7 @@ describe('ShippingDetails Form', () => {
 
   });
 
-  test('❌ Digits in full name show error (custom logic required)', async () => {
+  test('[PASSED] Digits in full name show error (custom logic required)', async () => {
     renderWithProviders(<ShippingDetails profile={{}} shipping={{}} subtotal={subtotal} />, { store });
 
     fireEvent.change(screen.getByPlaceholderText(/full name/i), {

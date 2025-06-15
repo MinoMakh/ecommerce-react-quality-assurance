@@ -37,12 +37,12 @@ const AddProduct = () => {
             price: 0,
             maxQuantity: 0,
             description: '',
-            keywords: [],
-            sizes: [],
+            keywords: ["Boots"],
+            sizes: ["10"],
             image: '',
             isFeatured: false,
             isRecommended: false,
-            availableColors: [],
+            availableColors: ["#000000"],
             imageCollection: []
           }}
         />

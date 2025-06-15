@@ -1,5 +1,6 @@
 import * as Yup from 'yup';
 
+// Sign In Schema
 const SignInSchema = Yup.object().shape({
   email: Yup.string()
     .email('Email is not valid.')
@@ -8,6 +9,7 @@ const SignInSchema = Yup.object().shape({
     .required('Password is required.')
 });
 
+// Sign Up Schema
 const SignUpSchema = Yup.object().shape({
   fullname: Yup.string()
     .required('Full name is required.')
@@ -21,7 +23,8 @@ const SignUpSchema = Yup.object().shape({
     .matches(/[A-Z\W]/g, 'Password should contain at least 1 uppercase letter.')
 });
 
-describe(' White Box Validation Tests', () => {
+// White Box Unit Tests
+describe('✅ White Box Validation Tests', () => {
   test('Valid Sign In schema', async () => {
     await expect(
       SignInSchema.validate({
@@ -36,7 +39,7 @@ describe(' White Box Validation Tests', () => {
       SignInSchema.validate({
         email: 'user@example.com',
         password: ''
-      })
+      }, { abortEarly: false })
     ).rejects.toThrow('Password is required.');
   });
 
@@ -51,12 +54,16 @@ describe(' White Box Validation Tests', () => {
   });
 
   test('Invalid Sign Up schema (short name, weak password)', async () => {
-    await expect(
-      SignUpSchema.validate({
+    try {
+      await SignUpSchema.validate({
         fullname: 'Jo',
         email: 'jane@example.com',
         password: 'password'
-      })
-    ).rejects.toThrow('Name should be at least 4 characters.');
+      }, { abortEarly: false });
+    } catch (err) {
+      // Check multiple validation errors
+      expect(err.errors).toContain('Name should be at least 4 characters.');
+      expect(err.errors).toContain('Password should contain at least 1 uppercase letter.');
+    }
   });
 });

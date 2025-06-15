@@ -12,9 +12,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "vite",
-
     "build": "vite build && cpy index.html 404.html --cwd dist",
-
     "serve": "vite preview",
     "test": "vitest",
     "test:ui": "vitest --ui",
